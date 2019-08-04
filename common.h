@@ -1,14 +1,19 @@
-/** @file common.h
- *  @note 
- *  @brief 服务端公共函数头文件
- *  
- *  @author 
- *  @date 2019年07月28日
- *  
- *  @note 
- *  
- *  @warning 
- */
+
+/***************************************************************************************
+****************************************************************************************
+* FILE     : common.h
+* Description  : 
+*            
+* Copyright (c) 2019 by Hikvision. All Rights Reserved.
+* 
+* History:
+* Version      Name        Date                Description
+   0.1         fangyuan9   2019/08/02          Initial Version 1.0.0
+   
+****************************************************************************************
+****************************************************************************************/
+
+/* Includes ------------------------------------------------------------------*/
 
 #ifndef _COMMON_H
 #define _COMMON_H 1
@@ -62,7 +67,6 @@ typedef struct tagComTransInfo   //传输文件信息结构
     char            szSHA1[COM_SHA1DIGEST_LEN]; //文件摘要信息
     char            szFilename[NAME_MAX];       //文件名
     int             iFileSize;                  //文件大小
-    //TRANS_FLAG_E    enTransFlag;                //传输标志
 }COM_TRANS_INFO_S;
 
 /* 全局变量定义区 */
@@ -77,7 +81,7 @@ extern char                *g_pszSha1Digest;       //用于存储计算接收后
 char *gets_s(char *str, size_t num, FILE *stream);
 bool IsExist(stServerNode *pHead, char* pIP);
 void AddNode(stServerNode *pHead, char *pIP, uint16_t usiPort);
-stServerNode *FindNode(stServerNode *pHead, uint16_t iNum);
+stServerNode *FindNode(stServerNode *pHead, uint16_t ServerNum);
 uint16_t CountNodes(stServerNode *pHead);
 void PrintNode(stServerNode *pHead);
 void ProtocolMenu(void);
@@ -89,3 +93,6 @@ void UDPSendDirList(const char* pszDir, int sockfd, struct sockaddr_in *pstClien
 void TCPSendDirList(const char* pszDir, int sockfd);
 
 #endif
+
+/************************ (C) COPYRIGHT HIKVISION *****END OF FILE****/
+
